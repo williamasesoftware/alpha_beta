@@ -1,11 +1,12 @@
 class TicTacToe:
     
-    def __init__(self, board=None, player='X'):
-        if board is None:
-            self.board = [['-' for i in range(3)] for j in range(3)]
-        else:
-            self.board = board
-        self.player = player
+    def __init__(self, board=None, player='X', first_player='X'):
+            if board is None:
+                self.board = [['-' for i in range(3)] for j in range(3)]
+            else:
+                self.board = board
+            self.player = player
+            self.first_player = first_player
         
     def print_board(self):
         for row in self.board:
@@ -27,6 +28,7 @@ class TicTacToe:
                 return False
         return True
     
+
     def evaluate_board(self):
         if self.game_over():
             if self.player == 'X':
@@ -35,6 +37,7 @@ class TicTacToe:
                 return 1
         else:
             return 0
+
     
     def generate_children(self):
         children = []
@@ -104,19 +107,7 @@ game.print_board()
 print("Probabilidad de ganar para O:", game.alphabeta_value())
 
 
-game = TicTacToe()
-game.print_board()
 
-game.board[0][0] = 'X'
-game.board[1][1] = 'O'
-game.board[0][1] = 'X'
-game.board[2][0] = 'O'
-game.board[1][0] = 'X'
-game.board[2][2] = 'O'
-game.board[0][2] = 'X'
-game.board[2][1] = 'O'
-game.board[1][2] = 'X'
 
-game.print_board()
 
-print("Probabilidad de ganar para X:", game.alphabeta_value())
+
